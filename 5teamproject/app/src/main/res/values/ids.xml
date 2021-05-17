@@ -5,4 +5,6 @@
     <item name="user_name" type="id" />
     <item name="user_birth" type="id" />
     <item name="btn_save" type="id" />
+    <item name="btn_login" type="id" />
+    <item name="btn_register" type="id" />
 </resources>
