@@ -7,4 +7,6 @@
     <item name="btn_save" type="id" />
     <item name="btn_login" type="id" />
     <item name="btn_register" type="id" />
+    <item name="login_id" type="id" />
+    <item name="login_password" type="id" />
 </resources>

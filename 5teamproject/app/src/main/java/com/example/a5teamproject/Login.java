@@ -1,6 +1,8 @@
 package com.example.a5teamproject;
 
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +43,7 @@ public class Login extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String getID = user_id.getText().toString();
                 String getPassword = user_password.getText().toString();
                 String getName = user_name.getText().toString();
@@ -65,6 +68,9 @@ public class Login extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
                         Toast.makeText(Login.this, "회원가입을 성공했습니다.", Toast.LENGTH_SHORT).show();
                     }
                 })

@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login"/>
+        <activity android:name=".Calendar"/>
 
     </application>
     <!-- 인터넷 사용 권한 -->
