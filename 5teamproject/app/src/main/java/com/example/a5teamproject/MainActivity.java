@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         User user = snapshot.child(login_id.getText().toString()).getValue(User.class);
                         if(user.getPassword().equals(login_password.getText().toString())){
-                            Intent intent = new Intent(MainActivity.this, Calendar.class);
+                            Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                             Toast.makeText(MainActivity.this, "로그인을 성공했습니다.", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }else{

@@ -18,10 +18,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login"/>
-        <activity android:name=".Calendar"/>
+        <activity android:name=".CalendarActivity"/>
+        <activity android:name=".Bgm"/>
 
     </application>
-    <!-- 인터넷 사용 권한 -->
+    //인터넷 사용 권한
     <uses-permission android:name="android.permission.INTERNET" />
+    //파일 읽기, 쓰기 권한
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
 </manifest>
