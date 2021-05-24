@@ -1,78 +1,37 @@
 package com.example.music;
 
-import android.media.MediaPlayer;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class MainActivity extends AppCompatActivity {
-    Button btn_play;
-    Button btn_stop;
 
-
-    MediaPlayer mediaPlayer;
-    //활동 종료 시점일때 여기 실행
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        if(mediaPlayer!=null){
-
-            mediaPlayer.release();
-            mediaPlayer=null;
-
-        }
-
-
-
-
-    }
+    Button btn_play, btn_stop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_play = findViewById(R.id.btn_play);
-        btn_stop = findViewById(R.id.btn_stop);
-
-        //재생
+        btn_play =(Button)findViewById(R.id.btn_play);
+        btn_stop = (Button)findViewById(R.id.btn_stop);
+        //시작버튼
         btn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.m);
-
-                mediaPlayer.start();
+                startService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
-
-        //멈춰!
+        //종료버튼
         btn_stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(mediaPlayer.isPlaying()){
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
+                stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
-
-
