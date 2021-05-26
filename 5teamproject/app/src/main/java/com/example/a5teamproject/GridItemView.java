@@ -1,4 +1,4 @@
-package com.example.a5teamproject;
+ package com.example.a5teamproject;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -31,7 +31,7 @@ public class GridItemView extends AppCompatTextView {
         if (day != 0) {
             setText(String.valueOf(day));
             setGravity(Gravity.CENTER);
-            setTextColor(Color.BLACK);
+            setTextColor(Color.BLACK);  
             setTextSize(20);
         }else{
             setText("");
