@@ -1,17 +1,50 @@
 package com.example.a5teamproject;
 
-public class GridItem {
+public class GridItem
+{
+    private String cYear, cMonth, cDay="";
+    private boolean cImg;
+    private int cText=0;
 
-    private int day;
 
-
-    GridItem(int day){
-        this.day = day;
+    GridItem(String y, String m, boolean img)
+    {
+        cYear = y;
+        cMonth = m;
+        cImg = img;
     }
 
-    public int getDay(){
-        return day;
+    GridItem(String y, String m, String d, int text, boolean img)
+    {
+        cYear = y;
+        cMonth = m;
+        cDay = d;
+        cText = text;
+        cImg = img;
     }
 
+    public String year()
+    {
+        return cYear;
+    }
 
+    public String month()
+    {
+        return cMonth;
+    }
+
+    public String day()
+    {
+        return cDay;
+    }
+
+    public Boolean img()
+    {
+        return cImg;
+    }
+
+    public int text()
+    {
+        return cText;
+    }
 }

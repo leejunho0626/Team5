@@ -19,9 +19,9 @@
     <Button
 
         android:id="@+id/btn_stop"
-        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="정지"/>
+        android:layout_weight="1"
+        android:text="정지" />
 
 </LinearLayout>
