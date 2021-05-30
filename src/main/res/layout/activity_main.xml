@@ -1,24 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="horizontal">
 
-
-    <Button
+    /*MUsic1*/
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="1dp"
+        android:layout_alignParentLeft="true"
+        android:text="Music 1" />
+
+    <Button
         android:id="@+id/btn_play"
-        android:text="play"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:text="play" />
 
     <Button
 
         android:id="@+id/btn_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop"/>
+        android:layout_toRightOf="@id/btn_play"
+        android:layout_below="@id/textView"
+        android:text="Stop" />
 
-</LinearLayout>
+    /*Music2*/
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentLeft="true"
+        android:text="Music 2" />
+
+    <Button
+        android:id="@+id/btn_play2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:text="play" />
+
+    <Button
+
+        android:id="@+id/btn_stop2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_play"
+        android:layout_below="@id/textView2"
+        android:text="Stop" />
+
+    /*Music3*/
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="160dp"
+        android:layout_alignParentLeft="true"
+        android:text="Music 3" />
+
+    <Button
+        android:id="@+id/btn_play3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView3"
+        android:text="play" />
+
+    <Button
+
+        android:id="@+id/btn_stop3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_play"
+        android:layout_below="@id/textView3"
+        android:text="Stop" />
+
+    /*Music4*/
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="240dp"
+        android:layout_alignParentLeft="true"
+        android:text="Music 4" />
+
+    <Button
+        android:id="@+id/btn_play4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:text="play" />
+
+    <Button
+
+        android:id="@+id/btn_stop4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_play"
+        android:layout_below="@id/textView4"
+        android:text="Stop" />
+
+    /*Music5*/
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="320dp"
+        android:layout_alignParentLeft="true"
+        android:text="Music 5" />
+
+    <Button
+        android:id="@+id/btn_play5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView5"
+        android:text="play" />
+
+    <Button
+
+        android:id="@+id/btn_stop5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_play"
+        android:layout_below="@id/textView5"
+        android:text="Stop" />
+
+
+</RelativeLayout>
