@@ -15,7 +15,7 @@
         android:textSize="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="글 작성 화면"
+        android:text="즐겨찾기 화면"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,38 +23,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/dateWrite"
+        android:id="@+id/favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:text="날짜"
-        android:textSize="15dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/write1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="16dp"
-        android:hint="날짜를 입력하세요" />
 
-    <EditText
-        android:id="@+id/write"
-        android:layout_width="match_parent"
-        android:layout_height="96dp"
-        android:layout_margin="16dp"
-        android:hint="내용을 입력하세요" />
-
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_marginTop="32dp"
-        android:text="저장"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

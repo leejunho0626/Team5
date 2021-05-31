@@ -71,9 +71,9 @@ public class GridAdapter extends BaseAdapter
 
         day.setVisibility(View.VISIBLE);
 
-        ImageView take = (ImageView)v.findViewById(R.id.imageView);
+        TextView label = (TextView)v.findViewById(R.id.label);
         if (mItem.get(position).img())
-            take.setVisibility(View.VISIBLE);
+            label.setVisibility(View.VISIBLE);
 
         return v;
     }
