@@ -47,6 +47,8 @@ public class CalendarActivity extends AppCompatActivity {
     Uri uri;
     private ImageView imageview;
     boolean img;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +70,16 @@ public class CalendarActivity extends AppCompatActivity {
 
         show();
 
-        CharSequence info[] = new CharSequence[] {"사진 추가", "글작성", "★" };
+        CharSequence info[] = new CharSequence[] {"사진 추가 및 수정", "글 작성 및 수정", "사진 삭제", "글 삭제","★" };
         AlertDialog.Builder dialog = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
 
         //날짜 선택
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(CalendarActivity.this,"클릭 성공", Toast.LENGTH_SHORT).show();
+                text.setText("새로운 내용을 추가하세요.");
                 writeDownload(i);
-                a = adt.mItem.get(i).month()+"."+adt.mItem.get(i).day()+"일";
-                text.setText(a);
+                a = adt.mItem.get(i).month()+"."+adt.mItem.get(i).day()+"일"+user.getUid();
                 StorageReference storageRef=storage.getReferenceFromUrl("gs://teamproject-4aa56.appspot.com").child("Photo");
                 StorageReference storageRef1 = storageRef.child(a);
                 if(storageRef1==null){
@@ -91,10 +92,6 @@ public class CalendarActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     Glide.with(CalendarActivity.this).load(uri).into(imageview);
-                                    Toast.makeText(getApplicationContext(), "사진이 정상적으로 표시 되었습니다.", Toast.LENGTH_LONG).show();
-
-
-
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -114,7 +111,6 @@ public class CalendarActivity extends AppCompatActivity {
                                 switch (j)
                                 {
                                     case 0:
-                                        Toast.makeText(getApplicationContext(), "갤러리로 이동", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent();
                                         intent.setType("image/*");
                                         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -125,6 +121,14 @@ public class CalendarActivity extends AppCompatActivity {
                                         showDialog(view,i);
                                         break;
                                     case 2:
+
+                                        photoDelete(i);
+                                        break;
+                                    case 3:
+
+                                        writeDelete(i);
+                                        break;
+                                    case 4:
                                         Toast.makeText(getApplicationContext(), "즐겨찾기 화면으로 이동", Toast.LENGTH_LONG).show();
                                         break;
                                 }
@@ -164,8 +168,6 @@ public class CalendarActivity extends AppCompatActivity {
                     InputStream in = getContentResolver().openInputStream(data.getData());
                     Bitmap img = BitmapFactory.decodeStream(in);
                     in.close();
-                    // 이미지 표시
-                    Toast.makeText(getApplicationContext(), "이미지 성공", Toast.LENGTH_LONG).show();
                     imageview.setImageBitmap(img);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -238,18 +240,18 @@ public class CalendarActivity extends AppCompatActivity {
         SimpleDateFormat f = new SimpleDateFormat("dd");
         return Integer.parseInt(f.format(d));
     }
+    
 
+    //글 작성
     public void writeUpload(int i , String w){
         b = adt.mItem.get(i-1).month()+"."+adt.mItem.get(i).day()+"일";
         final String text = w;
         final String text1 =b;
         if(text.length()>0){
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             UserWrite userWrite = new UserWrite(text);
 
-            db.collection("posts").document(b).set(userWrite)
+            db.collection("posts").document(user.getUid()).collection(b).document(b).set(userWrite)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void avoid) {
@@ -267,17 +269,15 @@ public class CalendarActivity extends AppCompatActivity {
         }
 
     }
+    
+    //작성한 글 표시
     public void writeDownload(int i){
 
         b = adt.mItem.get(i-1).month()+"."+adt.mItem.get(i).day()+"일";
 
         final String text1 =b;
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-
-            db.collection("posts").document(text1)
+            db.collection("posts").document(user.getUid()).collection(b).document(b)
                     .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -286,14 +286,62 @@ public class CalendarActivity extends AppCompatActivity {
                         if (document.exists()) {
                             text.setText(document.getData().toString());
                         } else {
-                            Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_LONG).show();
+                           //Toast.makeText(getApplicationContext(), "저장된 글이 없습니다.", Toast.LENGTH_LONG).show();
 
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "get failed with", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "불러오기를 실패했습니다.", Toast.LENGTH_LONG).show();
                     }
                 }
             });
+    }
+    //글 삭제
+    public void writeDelete(int i){
+
+        b = adt.mItem.get(i-1).month()+"."+adt.mItem.get(i).day()+"일";
+
+        final String text1 =b;
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("posts").document(user.getUid()).collection(b).document(b)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getApplicationContext(), "삭제를 성공했습니다.", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "삭제를 실패했습니다.", Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+    
+
+    //사진삭제
+    public void photoDelete(int i){
+
+        b = adt.mItem.get(i-1).month()+"."+adt.mItem.get(i).day()+"일"+user.getUid();
+
+        final String text1 =b;
+
+        StorageReference storageRef = storage.getReference();
+        StorageReference desertRef = storageRef.child("Photo/"+text1);
+        desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(getApplicationContext(), "삭제를 성공했습니다.", Toast.LENGTH_LONG).show();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(getApplicationContext(), "삭제를 실패했습니다.", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
     }
 
 
@@ -308,7 +356,7 @@ public class CalendarActivity extends AppCompatActivity {
         builder.setPositiveButton("저장", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getApplicationContext(),editText.getText().toString(), Toast.LENGTH_SHORT).show();
+
                 String edit = editText.getText().toString();
                 writeUpload(j,edit);
             }
