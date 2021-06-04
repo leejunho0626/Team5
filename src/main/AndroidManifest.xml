@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+//BGM서비스를 위한 서비스코드
         <service
             android:name=".MainActivity"
             android:enabled="true"

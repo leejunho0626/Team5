@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    //버튼할당
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.ncm1);
-                mediaPlayer.start();
+                mediaPlayer.start();//BGM재생함수
             }
         });
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 mediaPlayer.stop();
-                mediaPlayer.reset();
+                mediaPlayer.reset();//음악 정지시 리셋됨
                 // stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
