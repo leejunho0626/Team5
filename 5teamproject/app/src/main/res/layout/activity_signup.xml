@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="30dp"
-tools:context=".Login">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="@color/black"
+    tools:context=".Login">
+
 
 <TextView
     android:layout_marginTop="32dp"
     android:layout_gravity="center"
-    android:textSize="24dp"
+    android:textSize="40dp"
+    android:textColor="@color/white"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="회원가입"
@@ -26,6 +29,9 @@ tools:context=".Login">
     android:id="@+id/user_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:backgroundTint = "@color/white"
+    android:textColorHint="@color/white"
     android:hint="아이디(이메일)를 입력하세요."/>
 
 <EditText
@@ -33,6 +39,9 @@ tools:context=".Login">
     android:id="@+id/user_password"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:backgroundTint = "@color/white"
+    android:textColorHint="@color/white"
     android:hint="비밀번호를 입력하세요.\n(6자리 이상)"
     android:inputType="textPassword"/>
 

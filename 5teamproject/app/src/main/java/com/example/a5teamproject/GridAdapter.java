@@ -68,6 +68,12 @@ public class GridAdapter extends BaseAdapter
         day.setText(mItem.get(position).day());
 
         int text = mItem.get(position).text();
+        if (text == 1)
+            day.setTextColor(mContext.getResources().getColor(R.color.red));
+        else if (text == 7)
+            day.setTextColor(mContext.getResources().getColor(R.color.blue));
+
+        day.setVisibility(View.VISIBLE);
 
         day.setVisibility(View.VISIBLE);
 

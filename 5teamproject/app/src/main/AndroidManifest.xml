@@ -21,6 +21,11 @@
         <activity android:name=".CalendarActivity"/>
         <activity android:name=".Favorite"/>
         <activity android:name=".Bgm"/>
+        //BGM서비스를 위한 서비스코드
+        <service
+            android:name=".Bgm"
+            android:enabled="true"
+            android:exported="true"/>
 
     </application>
     //인터넷 사용 권한
@@ -28,6 +33,7 @@
     //파일 읽기, 쓰기 권한
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
 
 </manifest>
