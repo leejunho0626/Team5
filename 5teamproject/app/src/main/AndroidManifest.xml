@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".Login"/>
         <activity android:name=".CalendarActivity"/>
+        <activity android:name=".Favorite"/>
         <activity android:name=".Bgm"/>
 
     </application>

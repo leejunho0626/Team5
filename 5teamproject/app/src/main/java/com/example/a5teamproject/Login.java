@@ -45,12 +45,12 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
+
                         Toast.makeText(getApplicationContext(), "회원가입에 성공했습니다.", Toast.LENGTH_LONG).show();
                         finish();
                     } else {
                         if (task.getException() != null) {
-                            Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "이미 등록된 아이디입니다..", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
