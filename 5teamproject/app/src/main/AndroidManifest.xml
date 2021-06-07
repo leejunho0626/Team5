@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a5teamproject">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    //인터넷 사용 권한
+    <uses-permission android:name="android.permission.INTERNET" />
+    //파일 읽기, 쓰기 권한
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+       android:icon="@drawable/calender"
+        android:label="PhotoDiary"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.5teamproject">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Login"/>
+        <activity android:name=".CalendarActivity"/>
+        <activity android:name=".Favorite"/>
+        <activity android:name=".Bgm"/>
+        <activity android:name=".Weather"/>
+
+        //BGM서비스를 위한 서비스코드
+        <service
+            android:name=".Bgm"
+            android:enabled="true"
+            android:exported="true"/>
+    </application>
+</manifest>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="user_id" type="id" />
+    <item name="user_password" type="id" />
+    <item name="user_name" type="id" />
+    <item name="user_birth" type="id" />
+    <item name="btn_save" type="id" />
+    <item name="btn_login" type="id" />
+    <item name="btn_register" type="id" />
+    <item name="login_id" type="id" />
+    <item name="login_password" type="id" />
+
+</resources>
