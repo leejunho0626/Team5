@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Bgm"
-    android:padding="60dp"
+    android:background="@drawable/images2"
+    android:padding="120dp"
     android:orientation="horizontal">
 
     /*MUsic1*/
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView"
         android:textColor="@color/black"
-        app:backgroundTint="#4CAF50"
+        app:backgroundTint="@color/white"
         android:text="play" />
 
     <Button
@@ -36,6 +37,7 @@
         android:layout_toRightOf="@id/btn_play"
         android:layout_below="@id/textView"
         android:textColor="@color/white"
+        app:backgroundTint="#3F51B5"
         android:text="Stop" />
 
     /*Music2*/
@@ -53,8 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView2"
-        android:textColor="@color/black"
-        app:backgroundTint="#BC2217"
+        android:textColor="@color/white"
+        app:backgroundTint="#3F51B5"
         android:text="play" />
 
     <Button
@@ -65,7 +67,7 @@
         android:layout_toRightOf="@id/btn_play"
         android:layout_below="@id/textView2"
         android:textColor="@color/black"
-        app:backgroundTint="#03A9F4"
+        app:backgroundTint="@color/white"
         android:text="Stop" />
 
     /*Music3*/
@@ -84,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView3"
         android:textColor="@color/black"
-        app:backgroundTint="#FFC107"
+        app:backgroundTint="@color/white"
         android:text="play" />
 
     <Button
@@ -94,8 +96,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/btn_play"
         android:layout_below="@id/textView3"
-        android:textColor="@color/black"
-        app:backgroundTint="#4CAF50"
+        android:textColor="@color/white"
+        app:backgroundTint="#3F51B5"
         android:text="Stop" />
 
     /*Music4*/
@@ -113,8 +115,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView4"
-        android:textColor="@color/black"
-        app:backgroundTint="#03A9F4"
+        android:textColor="@color/white"
+        app:backgroundTint="#3F51B5"
         android:text="play" />
 
     <Button
@@ -125,7 +127,7 @@
         android:layout_toRightOf="@id/btn_play"
         android:layout_below="@id/textView4"
         android:textColor="@color/black"
-        app:backgroundTint="#BC2217"
+        app:backgroundTint="@color/white"
         android:text="Stop" />
 
     /*Music5*/
@@ -143,7 +145,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView5"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
         android:text="play" />
 
     <Button
@@ -153,19 +156,31 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/btn_play"
         android:layout_below="@id/textView5"
-        android:textColor="@color/black"
-        app:backgroundTint="#FFC107"
+        android:textColor="@color/white"
+        app:backgroundTint="#3F51B5"
         android:text="Stop" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="400dp"
+        android:layout_alignParentLeft="true"
+        android:text="" />
 
 
     <Button
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="26dp"
-        android:layout_toRightOf="@id/btn_stop"
+        android:layout_below="@id/textView6"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/textView6"
         android:text="back"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="@color/user" />
 
 

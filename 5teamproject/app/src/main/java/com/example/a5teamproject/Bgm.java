@@ -1,13 +1,13 @@
 package com.example.a5teamproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//BGM
 public class Bgm extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
@@ -18,7 +18,6 @@ public class Bgm extends AppCompatActivity {
     Button btn_play5,btn_stop5;
     Button btn_back;
 
-
     //종료 될때
     @Override
     protected void onDestroy() {
@@ -26,16 +25,13 @@ public class Bgm extends AppCompatActivity {
         if(mediaPlayer!= null){
             mediaPlayer.release();
             mediaPlayer=null;
-
         }
-
     }
     //버튼할당
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bgm);
-
 
         btn_play =(Button)findViewById(R.id.btn_play);
         btn_stop = (Button)findViewById(R.id.btn_stop);
@@ -54,6 +50,7 @@ public class Bgm extends AppCompatActivity {
 
         btn_back = (Button)findViewById(R.id.btn_back);
 
+        //뒤로가기
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +60,6 @@ public class Bgm extends AppCompatActivity {
         });
 
         //시작버튼
-
         btn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,13 +67,11 @@ public class Bgm extends AppCompatActivity {
                 mediaPlayer.start();//BGM재생함수
             }
         });
-
         btn_play2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mediaPlayer = MediaPlayer.create(Bgm.this,R.raw.ncm2);
                 mediaPlayer.start();
-                //startService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
@@ -86,7 +80,6 @@ public class Bgm extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer = MediaPlayer.create(Bgm.this,R.raw.ncm3);
                 mediaPlayer.start();
-                // startService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
@@ -95,7 +88,6 @@ public class Bgm extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer = MediaPlayer.create(Bgm.this,R.raw.ncm4);
                 mediaPlayer.start();
-                // startService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
@@ -104,18 +96,14 @@ public class Bgm extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer = MediaPlayer.create(Bgm.this,R.raw.ncm5);
                 mediaPlayer.start();
-                // startService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
-
         //종료버튼
         btn_stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 mediaPlayer.stop();
                 mediaPlayer.reset();//음악 정지시 리셋됨
-                // stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
@@ -124,7 +112,6 @@ public class Bgm extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.reset();
-                //  stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
@@ -133,7 +120,6 @@ public class Bgm extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.reset();
-                // stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
 
@@ -142,20 +128,14 @@ public class Bgm extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.reset();
-                // stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
-
         btn_stop5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.reset();
-                //stopService(new Intent(getApplicationContext(), MusicService.class));
             }
         });
-
-
-
     }
 }

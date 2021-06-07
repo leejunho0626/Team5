@@ -9,7 +9,7 @@
         android:visibility="gone"
         android:textAppearance="?android:attr/textAppearance"
         android:textSize="24dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 

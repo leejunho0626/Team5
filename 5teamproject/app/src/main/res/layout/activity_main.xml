@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="50dp"
-    android:background="@color/black"
+    android:background="@drawable/back"
     tools:context=".MainActivity">
 
 
@@ -18,7 +18,7 @@
         android:layout_marginBottom="32dp"
         android:text="Photo Diary"
         android:gravity="center"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/white"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,14 +33,14 @@
         android:textColor="@color/white"
         android:backgroundTint = "@color/white"
         android:textColorHint="@color/white"
-        android:hint="아이디를 입력하세요"/>
+        android:hint="ID"/>
 
     <EditText
         android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:hint="비밀번호를 입력하세요"
+        android:hint="Password"
         android:textColor="@color/white"
         android:backgroundTint = "@color/white"
         android:textColorHint="@color/white"
@@ -49,14 +49,16 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_marginTop="32dp"
-        android:text="로그인"
+        android:text="Login"
+        app:backgroundTint="#3F51B5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btn_register"
         android:layout_marginTop="32dp"
-        android:text="회원가입"
+        android:text="Sign Up"
+        app:backgroundTint="#3F51B5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

@@ -6,7 +6,6 @@ public class GridItem
     private boolean cImg;
     private int cText=0;
 
-
     GridItem(String y, String m, boolean img)
     {
         cYear = y;

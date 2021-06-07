@@ -1,31 +1,21 @@
 package com.example.a5teamproject;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import android.view.View;
 
+//즐겨찾기
 public class Favorite extends AppCompatActivity {
     TextView textView,textView1, textView2, textView3,textView4, textView5;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private static final String TAG = "Hello Tag";
-
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite);
@@ -40,11 +30,8 @@ public class Favorite extends AppCompatActivity {
         setFav3();
         setFav4();
         setFav5();
-
-
     }
-
-
+    //표시
     public void setFav1(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("posts").document("users").collection(user.getUid()).document("favorite")
@@ -59,20 +46,16 @@ public class Favorite extends AppCompatActivity {
                         String str1 = document.getData().toString();
                         str1 = str1.substring(str1.indexOf("=")+1);
                         String x = str1.substring(0, str1.indexOf("}"));
-                        textView1.setText(x);
+                        textView1.setText("1.     "+x);
                         if(x.equals("{")){
                             textView1.setText("");
                         }
-
                     } else {
-                        //Toast.makeText(getApplicationContext(), "저장된 글이 없습니다.", Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "불러오기를 실패했습니다.", Toast.LENGTH_LONG).show();
                 }
             }
-
         });
     }
     public void setFav2(){
@@ -89,20 +72,16 @@ public class Favorite extends AppCompatActivity {
                         String str1 = document.getData().toString();
                         str1 = str1.substring(str1.indexOf("=")+1);
                         String x = str1.substring(0, str1.indexOf("}"));
-                        textView2.setText(x);
+                        textView2.setText("2.     "+x);
                         if(x.equals("{")){
                             textView2.setText("");
                         }
-
                     } else {
-                        //Toast.makeText(getApplicationContext(), "저장된 글이 없습니다.", Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "불러오기를 실패했습니다.", Toast.LENGTH_LONG).show();
                 }
             }
-
         });
     }
     public void setFav3(){
@@ -119,20 +98,17 @@ public class Favorite extends AppCompatActivity {
                         String str1 = document.getData().toString();
                         str1 = str1.substring(str1.indexOf("=")+1);
                         String x = str1.substring(0, str1.indexOf("}"));
-                        textView3.setText(x);
+                        textView3.setText("3.     "+x);
                         if(x.equals("{")){
                             textView3.setText("");
                         }
 
                     } else {
-                        //Toast.makeText(getApplicationContext(), "저장된 글이 없습니다.", Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "불러오기를 실패했습니다.", Toast.LENGTH_LONG).show();
                 }
             }
-
         });
     }
     public void setFav4(){
@@ -149,20 +125,17 @@ public class Favorite extends AppCompatActivity {
                         String str1 = document.getData().toString();
                         str1 = str1.substring(str1.indexOf("=")+1);
                         String x = str1.substring(0, str1.indexOf("}"));
-                        textView4.setText(x);
+                        textView4.setText("4.     "+x);
                         if(x.equals("{")){
                             textView4.setText("");
                         }
 
                     } else {
-                        //Toast.makeText(getApplicationContext(), "저장된 글이 없습니다.", Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "불러오기를 실패했습니다.", Toast.LENGTH_LONG).show();
                 }
             }
-
         });
     }
     public void setFav5(){
@@ -179,21 +152,17 @@ public class Favorite extends AppCompatActivity {
                         String str1 = document.getData().toString();
                         str1 = str1.substring(str1.indexOf("=")+1);
                         String x = str1.substring(0, str1.indexOf("}"));
-                        textView5.setText(x);
+                        textView5.setText("5.     "+x);
                         if(x.equals("{")){
                             textView5.setText("");
                         }
 
                     } else {
-                        //Toast.makeText(getApplicationContext(), "저장된 글이 없습니다.", Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "불러오기를 실패했습니다.", Toast.LENGTH_LONG).show();
                 }
             }
-
         });
     }
-
 }
